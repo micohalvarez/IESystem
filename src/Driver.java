@@ -28,8 +28,9 @@ public class Driver {
 			Reader read = new Reader();
 			Writer write = new Writer();
 			   
-			write.pars(read.getStdControl(), read.getNumber(),read.getControl(),read.getAsset(),read.getOrg(),read.getVulnerable(),
-					read.getSecurity(),read.getSeverity(),read.getThreat(),read.getThreatOrigin(),read.getThreatSource());
+			
+			
+			Rules rules = new Rules();
 			
 //			BasicConfigurator.configure();
 //		        Gate.init();
@@ -69,18 +70,24 @@ public class Driver {
 			 */
 
 			// CORE NLP Pos Tagger
+			
 				MaxentTagger tagger = new MaxentTagger("C:\\Users\\Micoh F Alvarez\\Documents\\IESystem\\tagger\\left3words-wsj-0-18.tagger");
-				String sample = "This is a sample text";
+				
 				 
 				// The tagged string
-				 
-				String tagged = tagger.tagString(read.getSentence().get(0));
+				 for(int i = 0 ; i < read.getSentence().size() ; i++){
+				String tagged = tagger.tagString(read.getSentence().get(i));
 				 
 				// Output the result
 				 
 				System.out.println(tagged);
-			  
-			
+				read.getAsset().set(i+1, rules.getAsset(tagged));
+				read.getAction().set(i+1, rules.getAction(tagged));
+				read.getControl().set(i+1, rules.getControl(tagged));
+				read.getOrg().set(i+1, rules.getOrg(tagged));
+				 }
+				write.pars(read.getStdControl(),read.getNumber(), read.getControl(), read.getAction(),read.getAsset(),read.getOrg(),read.getVulnerable(),
+						read.getSecurity(),read.getSeverity(),read.getThreat(),read.getThreatOrigin(),read.getThreatSource());
 			
 		}
 	

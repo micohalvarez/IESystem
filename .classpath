@@ -50,6 +50,8 @@
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Documents/IESystem/lib/xpp3-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Documents/IESystem/lib/xstream-1.4.7.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Downloads/gate-8.4.1-build5753-BIN/gate-8.4.1-build5753-BIN/bin/gate.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Downloads/stanford-corenlp-full-2017-06-09/stanford-corenlp-full-2017-06-09/slf4j-api.jar"/>
+	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Downloads/stanford-corenlp-full-2017-06-09/stanford-corenlp-full-2017-06-09/slf4j-simple.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Documents/IESystem/lib/stanford-postagger.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

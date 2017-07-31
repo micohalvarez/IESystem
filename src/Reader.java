@@ -55,6 +55,7 @@ public class Reader {
 					control.add("");
 					asset.add("");
 					org.add("");
+					action.add("");
 					vulnerable.add("");
 					severity.add("");
 					threat.add("");
@@ -89,6 +90,7 @@ public class Reader {
 		stdControl.add("Standard Control");
 		number.add("#");
 		control.add("Control");
+		action.add("Action");
 		asset.add("Asset");
 		org.add("Organization");
 		vulnerable.add("Vulnerability");
