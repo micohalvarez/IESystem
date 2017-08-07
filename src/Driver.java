@@ -18,8 +18,8 @@ import gate.creole.ANNIEConstants;
 import gate.util.GateException;
 import gate.util.persistence.PersistenceManager;
 import gate.Utils;
-public class Driver {
 
+public class Driver {
 
 		public static void main(String[] args) throws IOException, GateException, ClassNotFoundException {
 			// TODO Auto-generated method stub
@@ -28,7 +28,6 @@ public class Driver {
 			Reader read = new Reader();
 			Writer write = new Writer();
 			   
-			
 			
 			Rules rules = new Rules();
 			
@@ -79,18 +78,32 @@ public class Driver {
 				String tagged = tagger.tagString(read.getSentence().get(i));
 				 
 				// Output the result
-				 
+				
 				System.out.println(tagged);
+				
 				read.getAsset().set(i+1, rules.getAsset(tagged));
 				read.getAction().set(i+1, rules.getAction(tagged));
-				read.getControl().set(i+1, rules.getControl(tagged));
+			
 				read.getOrg().set(i+1, rules.getOrg(tagged));
 				 }
 				write.pars(read.getStdControl(),read.getNumber(), read.getControl(), read.getAction(),read.getAsset(),read.getOrg(),read.getVulnerable(),
 						read.getSecurity(),read.getSeverity(),read.getThreat(),read.getThreatOrigin(),read.getThreatSource());
 			
+//		Reader nlpana = new Reader();
+//		Reader dataana = new Reader();
+//		
+//		nlpana.init();
+//		dataana.init2();
+//		
+//			for(int j = 0; j < nlpana.getSentence().size() ; j++){
+//				
+//				
+//				
+//				
+//			}
+		
 		}
 	
-	
+		
 
 }

@@ -93,8 +93,7 @@ public class Rules {
 					jj++;
 					ii = words.size();
 					}
-					
-					
+	
 				}
 				for(int o = 0 ; o < asset.size(); o++){
 					
@@ -184,11 +183,9 @@ public class Rules {
 			    int jj;
 			for(int ii = 0 ; ii < words.size(); ii++){
 				
-				if((words.get(ii).contains("VBN") || words.get(ii).contains("VB"))){
-					if(!words.get(ii).contains("be"))
-					asset.add(words.get(ii));
-					
-					
+				if((words.get(ii).contains("VBN"))){
+					if(!words.get(ii).contains("be"	));
+					asset.add(words.get(ii));					
 				}
 			}
 				for(int o = 0 ; o < asset.size(); o++){

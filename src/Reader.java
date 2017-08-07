@@ -19,7 +19,9 @@ public class Reader {
 	private  ArrayList<String> threatSource;
 	private  ArrayList<String> threatOrigin;
 	private  ArrayList<String> sentence;
+	private  ArrayList<String> tp,fp,tn,fn;
 	
+
 	public  Reader(){
 		stdControl = new ArrayList<String>();
 		number =  new ArrayList<String>();
@@ -37,13 +39,12 @@ public class Reader {
 		
 	    createHeader();
 	    init();
-	
 	}
 	
 	public void init(){
 		
 		try{
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Micoh F Alvarez/Documents/IESystem/nlp.csv"));
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/Micoh F Alvarez/Documents/IESystem/hi.csv"));
 			String[] nextLine;
 			
 			while((nextLine = reader.readNext()) != null)
@@ -52,7 +53,46 @@ public class Reader {
 					number.add(nextLine[3]);
 					sentence.add(nextLine[5]);
 					stdControl.add(nextLine[1]);
-					control.add("");
+					control.add(nextLine[4]);
+					asset.add("");
+					org.add("");
+					action.add("");
+					vulnerable.add("");
+					severity.add("");
+					threat.add("");
+					security.add("");
+					threatSource.add("");
+					threatOrigin.add("");
+				}
+				
+			}
+			for(int i = 0 ; i< sentence.size(); i ++)
+				sentence.get(i).replaceAll("-","");
+			
+		}
+		catch(Exception e){
+			System.out.println(e.toString());
+			
+		}
+	
+		System.out.println("CSV Read Complete");
+		
+		
+	}
+	
+	public void init2(){
+		
+		try{
+			CSVReader reader = new CSVReader(new FileReader("C:/Users/Micoh F Alvarez/Documents/IESystem/data.csv"));
+			String[] nextLine;
+			
+			while((nextLine = reader.readNext()) != null)
+			{
+				if(nextLine != null){
+					number.add(nextLine[3]);
+					sentence.add(nextLine[5]);
+					stdControl.add(nextLine[1]);
+					control.add(nextLine[4]);
 					asset.add("");
 					org.add("");
 					action.add("");
@@ -77,7 +117,6 @@ public class Reader {
 		
 		
 	}
-	
 	public ArrayList<String> getSentence() {
 		return sentence;
 	}
@@ -88,8 +127,8 @@ public class Reader {
 
 	public void createHeader(){
 		stdControl.add("Standard Control");
-		number.add("#");
 		control.add("Control");
+		number.add("");
 		action.add("Action");
 		asset.add("Asset");
 		org.add("Organization");
@@ -99,6 +138,10 @@ public class Reader {
 		security.add("Security Attribute");
 		threatSource.add("Threat Source");
 		threatOrigin.add("Threat Origin");
+//		tp.add("True Positive");
+//		tn.add("True Negative");
+//		fp.add("False Positive");
+//		fn.add("False Negative");
 	}
 	
 	
@@ -196,6 +239,37 @@ public class Reader {
 
 	public void setStdControl(ArrayList<String> stdControl) {
 		this.stdControl = stdControl;
+	}
+	public ArrayList<String> getTp() {
+		return tp;
+	}
+
+	public void setTp(ArrayList<String> tp) {
+		this.tp = tp;
+	}
+
+	public ArrayList<String> getFp() {
+		return fp;
+	}
+
+	public void setFp(ArrayList<String> fp) {
+		this.fp = fp;
+	}
+
+	public ArrayList<String> getTn() {
+		return tn;
+	}
+
+	public void setTn(ArrayList<String> tn) {
+		this.tn = tn;
+	}
+
+	public ArrayList<String> getFn() {
+		return fn;
+	}
+
+	public void setFn(ArrayList<String> fn) {
+		this.fn = fn;
 	}
 	
 	

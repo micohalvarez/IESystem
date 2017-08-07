@@ -8,6 +8,7 @@ public class Writer {
 	
 	public Writer() throws IOException{
 		create();
+		createScore();
 	}
 		
 	public void create() throws IOException{
@@ -38,7 +39,7 @@ public class Writer {
 
 		
 		for (int i = 0 ; i < number.size(); i++){
-			String [] record = (number.get(i) + "," + stdControl.get(i) + "," + control.get(i) + "," + action.get(i)
+			String [] record = (number.get(i) + stdControl.get(i) + "," + control.get(i) + "," + action.get(i)
 			+ "," + asset.get(i) + "," + org.get(i) + "," + vulnerable.get(i) + "," + security.get(i) + "," + severity.get(i) + "," + threat.get(i) + "," + threatSource.get(i) +
 					"," + threatOrigin.get(i)).split(",");
 			
@@ -46,4 +47,36 @@ public class Writer {
 		}
 		
 	}
+	public void writeScore(String[] list) throws IOException{
+		
+		  String csv = "score.csv";
+	      CSVWriter writer = new CSVWriter(new FileWriter(csv, true));
+	        
+	    
+	      writer.writeNext(list);
+	        
+	      //close the writer
+	      writer.close();
+		
+	}
+	
+	public void createScore() throws IOException{
+		  String csv = "score.csv";
+	      CSVWriter writer = new CSVWriter(new FileWriter(csv));
+	    
+	      //close the writer
+	     
+	      writer.close();
+	}
+//	public void parseScore(ArrayList<String> scores){
+//		
+//			for(int i = 0; i <)
+//			String [] record = (scores.get(i) + "," + stdControl.get(i) + "," + control.get(i) + "," + action.get(i)
+//			+ "," + asset.get(i) + "," + org.get(i) + "," + vulnerable.get(i) + "," + security.get(i) + "," + severity.get(i) + "," + threat.get(i) + "," + threatSource.get(i) +
+//					"," + threatOrigin.get(i)).split(",");
+//			
+//			writeScore(record);
+//		
+//		
+//	}
 }
