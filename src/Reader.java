@@ -4,119 +4,112 @@ import java.util.ArrayList;
 import com.opencsv.CSVReader;
 
 public class Reader {
-	
-	
-	private  ArrayList<String> number;
-	private  ArrayList<String> stdControl;
-	private  ArrayList<String> action;
-	private  ArrayList<String> control;
-	private  ArrayList<String> asset;
-	private  ArrayList<String> org;
-	private  ArrayList<String> vulnerable;
-	private  ArrayList<String> severity;
-	private  ArrayList<String> threat;
-	private  ArrayList<String> security;
-	private  ArrayList<String> threatSource;
-	private  ArrayList<String> threatOrigin;
-	private  ArrayList<String> sentence;
-	private  ArrayList<String> tp,fp,tn,fn;
-	
 
-	public  Reader(){
-		stdControl = new ArrayList<String>();
-		number =  new ArrayList<String>();
-		action =  new ArrayList<String>();
-		control =  new ArrayList<String>();
-		asset =  new ArrayList<String>();
-		org =  new ArrayList<String>();
-		vulnerable =  new ArrayList<String>();
-		severity =  new ArrayList<String>();
-		threat =  new ArrayList<String>();
-		security =  new ArrayList<String>();
-		threatSource =  new ArrayList<String>();
-		threatOrigin =  new ArrayList<String>();
-		sentence =  new ArrayList<String>();
-		
-	    createHeader();
-	    init();
+
+	private ArrayList<String> number;
+	private ArrayList<String> stdControl;
+	private ArrayList<String> action;
+	private ArrayList<String> control;
+	private ArrayList<String> asset;
+	private ArrayList<String> org;
+	private ArrayList<String> vulnerable;
+	private ArrayList<String> severity;
+	private ArrayList<String> threat;
+	private ArrayList<String> security;
+	private ArrayList<String> threatSource;
+	private ArrayList<String> threatOrigin;
+	private ArrayList<String> sentence;
+	private ArrayList<String> tp, fp, tn, fn;
+
+
+	public Reader() {
+		stdControl = new ArrayList<>();
+		number = new ArrayList<>();
+		action = new ArrayList<>();
+		control = new ArrayList<>();
+		asset = new ArrayList<>();
+		org = new ArrayList<>();
+		vulnerable = new ArrayList<>();
+		severity = new ArrayList<>();
+		threat = new ArrayList<>();
+		security = new ArrayList<>();
+		threatSource = new ArrayList<>();
+		threatOrigin = new ArrayList<>();
+		sentence = new ArrayList<>();
+
+		createHeader();
+		init();
 	}
-	
-	public void init(){
-		
-		try{
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Micoh F Alvarez/Documents/IESystem/hi.csv"));
+
+	public void init() {
+
+		try {
+			CSVReader reader = new CSVReader(new FileReader("hi.csv"));
 			String[] nextLine;
-			
-			while((nextLine = reader.readNext()) != null)
-			{
-				if(nextLine != null){
-					number.add(nextLine[3]);
-					sentence.add(nextLine[5]);
-					stdControl.add(nextLine[1]);
-					control.add(nextLine[4]);
-					asset.add("");
-					org.add("");
-					action.add("");
-					vulnerable.add("");
-					severity.add("");
-					threat.add("");
-					security.add("");
-					threatSource.add("");
-					threatOrigin.add("");
-				}
-				
+
+			while ((nextLine = reader.readNext()) != null) {
+				number.add(nextLine[3]);
+				sentence.add(nextLine[5]);
+				stdControl.add(nextLine[1]);
+				control.add(nextLine[4]);
+				asset.add("");
+				org.add("");
+				action.add("");
+				vulnerable.add("");
+				severity.add("");
+				threat.add("");
+				security.add("");
+				threatSource.add("");
+				threatOrigin.add("");
+
 			}
-			for(int i = 0 ; i< sentence.size(); i ++)
-				sentence.get(i).replaceAll("-","");
-			
-		}
-		catch(Exception e){
+
+			for (int i = 0; i < sentence.size(); i++)
+				sentence.set(i, sentence.get(i).replaceAll("- ", ""));
+
+		} catch (Exception e) {
 			System.out.println(e.toString());
-			
+
 		}
-	
+
 		System.out.println("CSV Read Complete");
-		
-		
+
+
 	}
-	
-	public void init2(){
-		
-		try{
-			CSVReader reader = new CSVReader(new FileReader("C:/Users/Micoh F Alvarez/Documents/IESystem/data.csv"));
+
+	public void init2() {
+
+		try {
+			CSVReader reader = new CSVReader(new FileReader("data.csv"));
 			String[] nextLine;
-			
-			while((nextLine = reader.readNext()) != null)
-			{
-				if(nextLine != null){
-					number.add(nextLine[3]);
-					sentence.add(nextLine[5]);
-					stdControl.add(nextLine[1]);
-					control.add(nextLine[4]);
-					asset.add("");
-					org.add("");
-					action.add("");
-					vulnerable.add("");
-					severity.add("");
-					threat.add("");
-					security.add("");
-					threatSource.add("");
-					threatOrigin.add("");
-				}
-				
+
+			while ((nextLine = reader.readNext()) != null) {
+				number.add(nextLine[3]);
+				sentence.add(nextLine[5]);
+				stdControl.add(nextLine[1]);
+				control.add(nextLine[4]);
+				asset.add("");
+				org.add("");
+				action.add("");
+				vulnerable.add("");
+				severity.add("");
+				threat.add("");
+				security.add("");
+				threatSource.add("");
+				threatOrigin.add("");
 			}
-		
-			
-		}
-		catch(Exception e){
+
+
+		} catch (Exception e) {
 			System.out.println(e.toString());
-			
+
 		}
-	
+
 		System.out.println("CSV Read Complete");
-		
-		
+
+
 	}
+
 	public ArrayList<String> getSentence() {
 		return sentence;
 	}
@@ -125,10 +118,10 @@ public class Reader {
 		this.sentence = sentence;
 	}
 
-	public void createHeader(){
+	public void createHeader() {
 		stdControl.add("Standard Control");
 		control.add("Control");
-		number.add("");
+		number.add("#");
 		action.add("Action");
 		asset.add("Asset");
 		org.add("Organization");
@@ -143,8 +136,8 @@ public class Reader {
 //		fp.add("False Positive");
 //		fn.add("False Negative");
 	}
-	
-	
+
+
 	public ArrayList<String> getAction() {
 		return action;
 	}
@@ -240,6 +233,7 @@ public class Reader {
 	public void setStdControl(ArrayList<String> stdControl) {
 		this.stdControl = stdControl;
 	}
+
 	public ArrayList<String> getTp() {
 		return tp;
 	}
@@ -271,6 +265,6 @@ public class Reader {
 	public void setFn(ArrayList<String> fn) {
 		this.fn = fn;
 	}
-	
-	
+
+
 }

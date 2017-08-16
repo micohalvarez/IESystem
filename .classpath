@@ -53,5 +53,6 @@
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Downloads/stanford-corenlp-full-2017-06-09/stanford-corenlp-full-2017-06-09/slf4j-api.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Downloads/stanford-corenlp-full-2017-06-09/stanford-corenlp-full-2017-06-09/slf4j-simple.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Micoh F Alvarez/Documents/IESystem/lib/stanford-postagger.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lib"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

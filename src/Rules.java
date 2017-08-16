@@ -104,8 +104,7 @@ public class Rules {
 					}
 				}
 				System.out.println(String.join("", asset));
-				
-				
+
 			}
 			
 			return String.join("", asset);
